@@ -47,22 +47,112 @@ SELECT column1, column2 FROM table_name WHERE condition;
 ```
 **Question 1**
 --
--- Paste Question 1 here
+Write a query to fetch details of all employees excluding the employees with first names, “Sanjay” and “Sonia” from the EmployeeInfo table.
+EmpID
+
+EmpFname
+
+EmpLname
+
+Department
+
+Project
+
+Address
+
+DOB
+
+Gender
+
+1
+
+Sanjay
+
+Mehra
+
+HR
+
+P1
+
+Hyderabad(HYD)
+
+01/12/1976
+
+M
+
+2
+
+Ananya
+
+Mishra
+
+Admin
+
+P2
+
+Delhi(DEL)
+
+02/05/1968
+
+F
+
+
+
+For example:
+
+Result
+EmpID       EmpFname    EmpLname    Department  Project     Address     DOB         Gender
+----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------
+2           Ananya      Mishra      Admin       P2          Delhi(DEL)  1968-05-02  F
+3           Rohan       Diwan       Account     P3          Mumbai(BOM  1980-01-01  M
+5           Ankit       Kapoor      Admin       P2          Delhi(DEL)  1994-07-03  M
+
 
 ```sql
--- Paste your SQL code below for Question 1
+SELECT *
+FROM EmployeeInfo
+WHERE EmpFname NOT IN ('Sanjay', 'Sonia');
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1735" height="355" alt="Screenshot 2026-11-06 182053" src="https://github.com/user-attachments/assets/138b30f3-d329-4edb-86cd-9891e77b2a38" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Question text
+Write a SQL query to Concatenate the first three characters of the employee's name with the last three characters of their job title.
+
+Table name: emp
+
+name        type
+----------  ----------
+empno       INT
+ename       VARCHAR(100)
+job         VARCHAR(50)
+mgr         INT
+hiredate    DATE
+sal         DECIMAL(10,2)
+comm        DECIMAL(10,2)
+deptno      INT
+For example:
+
+Result
+ename       job         ConcatenatedString
+----------  ----------  ------------------
+KING        PRESIDENT   KINENT
+SCOTT       ANALYST     SCOYST
+FORD        ANALYST     FORYST
+JAMES       CLERK       JAMERK
+MILLER      CLERK       MILERK
 
 ```sql
--- Paste your SQL code below for Question 2
+SELECT ename,
+       job,
+       SUBSTR(ename, 1, 3) || SUBSTR(job, -3) AS ConcatenatedString
+FROM emp;
+
 ```
 
 **Output:**
